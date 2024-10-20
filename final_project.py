@@ -9,10 +9,10 @@
 import pandas as pd
 import os
 
-path_a= os.getcwd() + '/Data/sahkon-hinta-010121-240924.csv'
+path_a= "https://raw.githubusercontent.com/tueckermann/Electricity-Consumption-and-Pricing/refs/heads/main/sahkon-hinta-010121-240924.csv"
 df_a = pd.read_csv(path_a)
 
-path_b= os.getcwd() + '/Data/Electricity_20-09-2024.csv'
+path_b= "https://raw.githubusercontent.com/tueckermann/Electricity-Consumption-and-Pricing/refs/heads/main/Electricity_20-09-2024.csv"
 df_b = pd.read_csv(path_b, sep=';', decimal=',')
 
 df_a['Time'] = pd.to_datetime(df_a['Time'].str.strip(),format = '%d-%m-%Y %H:%M:%S')
@@ -153,16 +153,3 @@ plt.grid()
 st.pyplot(plt)
 
 
-
-
-# st.write("### Electricity Consumption (kWh)")
-# st.line_chart(grouped_df.set_index('Time')['Electricity consumption (kWh)'])
-
-# st.write("### Average Hourly Price (cents)")
-# st.line_chart(grouped_df.set_index('Time')['Hourly Price (cent/kWh)'])
-
-# st.write("### Electricity Bill (€)")
-# st.line_chart(grouped_df.set_index('Time')['Electricity bill (€)'])
-
-# st.write("### Average Temperature (°C)")
-# st.line_chart(grouped_df.set_index('Time')['Avg Temperature (°C)'])
